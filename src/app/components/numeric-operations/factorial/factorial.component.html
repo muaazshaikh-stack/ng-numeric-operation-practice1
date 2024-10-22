@@ -1,0 +1,36 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-6">
+      <h5>Factorial Calculator</h5>
+      <input
+        type="number"
+        class="form-control"
+        [formControl]="inputFormControl"
+        [ngClass]="{ 'required': inputFormControl.touched && inputFormControl.invalid }"
+        placeholder="Enter a non-negative integer"
+        (keydown.enter)="onCalculateFactorial()"
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <span
+        class="error flex-fill"
+        *ngIf="inputFormControl.touched && inputFormControl.invalid"
+      >
+        Please enter a valid non-negative integer
+      </span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <button
+        class="btn btn-success mt-2"
+        (click)="onCalculateFactorial()"
+      >
+        Calculate
+      </button>
+      <p *ngIf="result !== null" class="fs-2">Factorial: {{ result }}</p>
+    </div>
+  </div>
+</div>

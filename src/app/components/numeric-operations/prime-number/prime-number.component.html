@@ -1,0 +1,39 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-6">
+      <h5>Prime Number Checker</h5>
+      <input
+        type="number"
+        class="form-control"
+        [formControl]="inputFormControl"
+        [ngClass]="{ 'required': inputFormControl.touched && !isValidNumber }"
+        placeholder="Enter a number"
+        (keydown.enter)="onCalculatePrimeClick()"
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <span
+        class="error flex-fill"
+        *ngIf="inputFormControl.touched && !isValidNumber"
+      >
+        Please enter a valid positive integer number
+      </span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <button
+        class="btn btn-success mt-2"
+        (click)="onCalculatePrimeClick()"
+      >
+        Check
+      </button>
+      <p *ngIf="!!result" class="fs-2">{{ result }}</p>
+    </div>
+  </div>
+</div>
+
+
+<app-model-dialog *ngIf="showDialog"></app-model-dialog>

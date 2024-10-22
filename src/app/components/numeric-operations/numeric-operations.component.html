@@ -1,0 +1,71 @@
+<div class="container-fluid">
+  <div class="row pt-2">
+    <h2>Numeric Operations</h2>
+  </div>
+
+  <!-- Operation Buttons -->
+  <div class="row pt-2">
+    <div class="col-12">
+      <button
+        class="btn btn-primary me-1"
+        (click)="onOperationItemClicked('prime-number')"
+      >
+        Prime Number
+      </button>
+      <button
+        class="btn btn-primary me-1"
+        (click)="onOperationItemClicked('factorial')"
+      >
+        Factorial
+      </button>
+      <button
+        class="btn btn-primary me-1"
+        (click)="onOperationItemClicked('square-root')"
+      >
+        Square Root
+      </button>
+      <button
+        class="btn btn-primary"
+        (click)="onOperationItemClicked('cube-root')"
+      >
+        Cube Root
+      </button>
+    </div>
+  </div>
+
+  <!-- Operation Components -->
+  <div class="row mt-5">
+    <ng-container [ngSwitch]="currentOperation">
+      <div class="col-12">
+        <app-prime-number *ngSwitchCase="'prime-number'"></app-prime-number>
+        <app-square-root *ngSwitchCase="'square-root'"></app-square-root>
+        <app-cube-root *ngSwitchCase="'cube-root'"></app-cube-root>
+        <app-factorial *ngSwitchCase="'factorial'"></app-factorial>
+      </div>
+    </ng-container>
+  </div>
+
+  <!-- Modal -->
+  <!-- <div class="modal fade" id="operationModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">{{ currentOperation }}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <ng-container [ngSwitch]="currentOperation">
+            <app-prime-number *ngSwitchCase="'Prime Number'"></app-prime-number>
+            <app-factorial *ngSwitchCase="'Factorial'"></app-factorial>
+            <app-square-root *ngSwitchCase="'Square Root'"></app-square-root>
+            <app-cube-root *ngSwitchCase="'Cube Root'"></app-cube-root>
+          </ng-container>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+</div>
